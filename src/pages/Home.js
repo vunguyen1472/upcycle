@@ -178,32 +178,6 @@ const Home = () => {
                             </Card>        
                         ))}
                     </Stack>
-                    {/* <Stack direction="vertical" gap={3}>
-                        {cards.slice(8, 10).map((card) => (
-                            <Card
-                                key={card.id}
-                                bg='success'
-                                text='white'
-                                style={{ width: '18rem' }}
-                                className="mb-2"
-                            >
-                                <Card.Header 
-                                    as={Button} 
-                                    variant="success"
-                                    onClick={() => {triggerCard(card.id)}}
-                                    aria-controls={card.id}
-                                    aria-expanded={card.isOpen}
-                                >
-                                    {card.question}
-                                </Card.Header>
-                                <Collapse in={card.isOpen}>
-                                    <Card.Body id={card.id}>
-                                        <Card.Text>{card.answer}</Card.Text>
-                                    </Card.Body>
-                                </Collapse>
-                            </Card>        
-                        ))}
-                    </Stack> */}
                 </Stack>
             </Container>
         </Container>

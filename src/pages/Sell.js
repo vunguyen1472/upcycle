@@ -14,12 +14,10 @@ import Row from 'react-bootstrap/Row';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
-import FormControl from "react-bootstrap/FormControl";
 
-import Map from "../components/Map";
+import LiveBanksMap from "../components/LiveBanksMap";
 
 import logo from '../assets/images/logo.png'; 
-// import MapComponent from "../components/MapComponent";
 
 const Sell = () => {
     const navigate = useNavigate();
@@ -67,30 +65,63 @@ const Sell = () => {
                     
                 <Accordion.Item eventKey="0">
                         <Accordion.Header>
-                            Bạn chọn gửi trực tiếp về kho hoặc gửi về kho qua đơn vị chuyển phát nhanh (người gửi trả phí ship)
+                            Bạn chọn gửi trực tiếp về box tại Livebank của TP Bank
                         </Accordion.Header>
                         <Accordion.Body>
-                            <Map />
+                            <LiveBanksMap />
                             <Form className="mt-3">
+                                <Row className="align-items-end">
+                                    <Form.Group as={Col} className="mb-3">
+                                        <Form.Label>Trọng lượng túi đồ</Form.Label>
+                                        <ToggleButtonGroup type="radio" name="options" defaultValue={1} className="container-fluid justify-content-between px-0 gap-2">
+                                            <ToggleButton value={1} id="tbg-radio-1" style={{fontSize: '14px'}}>
+                                                1kg-5kg
+                                            </ToggleButton>
+                                            <ToggleButton value={2} id="tbg-radio-2" style={{fontSize: '14px'}}>
+                                                6kg-10kg
+                                            </ToggleButton>
+                                            <ToggleButton value={3} id="tbg-radio-3" style={{fontSize: '14px'}}>
+                                                11kg-15kg
+                                            </ToggleButton>
+                                            <ToggleButton value={3} id="tbg-radio-4" style={{fontSize: '14px'}}>
+                                                16kg-20kg
+                                            </ToggleButton>
+                                        </ToggleButtonGroup>
+                                    </Form.Group>
+                                    <Form.Group as={Col} className="mb-3">
+                                        <FloatingLabel
+                                            label="Thời gian dự kiến bạn đến gửi hàng"
+                                        >
+                                            <Form.Control type="datetime-local" />
+                                        </FloatingLabel>
+                                    </Form.Group>
+
+                                </Row>
                                 <Form.Group className="mb-3">
                                     <FloatingLabel
                                         label="Chọn TPBank LiveBank gần nhất"
                                     >
                                         <Form.Select>
-                                            <option>Địa chỉ LiveBank 1</option>
-                                            <option>Địa chỉ LiveBank 2</option>
-                                            <option>Địa chỉ LiveBank 3</option>
-                                            <option>Địa chỉ LiveBank 4</option>
+                                            <option>TPBank LiveBank Nguyễn Cơ Thạch Thủ Đức</option> 
+                                            <option>TPBank LiveBank Quận 2</option> 
+                                            <option>TPBank LiveBank An Phú Quận 2</option> 
+                                            <option>TPBank LiveBank Sun Avenue Quận 2</option> 
+                                            <option>TPBank LiveBank Đồng Văn Cống Quận 2 </option> 
+                                            <option>TPBank LiveBank Citihome Cát Lái Quận 2</option> 
+                                            <option>TPBank LiveBank 698 Nguyễn Duy Trinh Quận 2</option> 
+                                            <option>TPBank LiveBank Liên Phường Quận 9</option> 
+                                            <option>TPBank LiveBank Quận 9</option> 
+                                            <option>TPBank LiveBank FTown 3 Quận 9</option> 
+                                            <option>TPBank LiveBank FPT Software D1 Quận 9</option> 
+                                            <option>TPBank LiveBank Man Thiện Quận 9</option> 
+                                            <option>TPBank LiveBank Sài Gòn Gateway Quận 9</option> 
+                                            <option>TPBank LiveBank Tô Ngọc Vân Thủ Đức</option> 
+                                            <option>TPBank LiveBank Nguyễn Thị Nhung Thủ Đức</option> 
+                                            <option>TPBank LiveBank Bình Chiểu Thủ Đức</option> 
                                         </Form.Select>
                                     </FloatingLabel>
                                 </Form.Group>
-                                <Form.Group className="mb-3">
-                                    <FloatingLabel
-                                        label="Thời gian dự kiến bạn đến gửi hàng"
-                                    >
-                                        <Form.Control type="time" />
-                                    </FloatingLabel>
-                                </Form.Group>
+                                
                                 <Button type="submit" className="container-fluid" onClick={handleFormSubmit}>Xác nhận</Button>
                             </Form>
                         </Accordion.Body>
@@ -98,60 +129,81 @@ const Sell = () => {
                     <Accordion.Item eventKey="1">
                         <Accordion.Header>Shipper thu gom tại nhà</Accordion.Header>
                         <Accordion.Body as={Form}>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Trọng lượng túi đồ</Form.Label>
-                                <ToggleButtonGroup type="radio" name="options" defaultValue={1} className="container-fluid justify-content-between px-0 gap-3">
-                                    <ToggleButton value={1} id="tbg-radio-1">
-                                        1kg-5kg
-                                    </ToggleButton>
-                                    <ToggleButton value={2} id="tbg-radio-2">
-                                        6kg-10kg
-                                    </ToggleButton>
-                                    <ToggleButton value={3} id="tbg-radio-3">
-                                        11kg-15kg
-                                    </ToggleButton>
-                                    <ToggleButton value={3} id="tbg-radio-4">
-                                        16kg-20kg
-                                    </ToggleButton>
-                                </ToggleButtonGroup>
-                            </Form.Group>
+                            <Row className="align-items-end">
+                                <Form.Group as={Col} className="mb-3">
+                                    <Form.Label>Trọng lượng túi đồ</Form.Label>
+                                    <ToggleButtonGroup type="radio" name="options" defaultValue={1} className="container-fluid justify-content-between px-0 gap-2">
+                                        <ToggleButton value={1} id="tbg-radio-1" style={{fontSize: '14px'}}>
+                                            1kg-5kg
+                                        </ToggleButton>
+                                        <ToggleButton value={2} id="tbg-radio-2" style={{fontSize: '14px'}}>
+                                            6kg-10kg
+                                        </ToggleButton>
+                                        <ToggleButton value={3} id="tbg-radio-3" style={{fontSize: '14px'}}>
+                                            11kg-15kg
+                                        </ToggleButton>
+                                        <ToggleButton value={3} id="tbg-radio-4" style={{fontSize: '14px'}}>
+                                            16kg-20kg
+                                        </ToggleButton>
+                                    </ToggleButtonGroup>
+                                </Form.Group>
 
+                                <Form.Group as={Col} className="mb-3">
+                                    <FloatingLabel
+                                        label="Chọn thời gian shipper lấy hàng"
+                                    >
+                                        <Form.Control type="datetime-local"/>
+                                    </FloatingLabel>
+                                </Form.Group>
+                            </Row>
+
+                            <Row>
+                                <Form.Group as={Col} className="mb-3">
+                                    <FloatingLabel
+                                        label="Chọn quận"
+                                    >
+                                        <Form.Select aria-label="Floating label select example">
+                                            <option>Thành phố Thủ Đức</option>
+                                            <option>Quận 1</option>
+                                            <option>Quận 2</option>
+                                            <option>Quận 3</option>
+                                            <option>Quận 4</option>
+                                            <option>Quận 5</option>
+                                            <option>Quận 6</option>
+                                            <option>Quận 7</option>
+                                            <option>Quận 8</option>
+                                            <option>Quận 9</option>
+                                            <option>Quận 10</option>
+                                            <option>Quận 11</option>
+                                            <option>Quận 12</option>
+                                        </Form.Select>
+                                    </FloatingLabel>
+                                </Form.Group>
+                                <Form.Group as={Col} className="mb-3">
+                                    <FloatingLabel
+                                        label="Phường/Xã"
+                                    >
+                                        <Form.Select aria-label="Floating label select example">
+                                            <option>Phường An Lợi Đông</option>
+                                            <option>Phường An Phú</option>
+                                            <option>Phường Bình Chiểu</option>
+                                            <option>Phường Bình Thọ</option>
+                                            <option>Phường Bình Trưng Đông</option>
+                                            <option>Phường Bình Trưng Tây</option>
+                                            <option>Phường Cát Lái</option>
+                                            <option>Phường Hiệp Bình Chánh</option>
+                                            <option>Phường Hiệp Bình Phước</option>
+                                            <option>Phường Hiệp Phú</option>
+                                            <option>Phường Linh Chiểu</option>
+                                            <option>Phường Linh Đông</option>
+                                            <option>Phường Linh Tây</option>
+                                        </Form.Select>
+                                    </FloatingLabel>
+                                </Form.Group>
+                            </Row>
+                            
                             <Form.Group className="mb-3">
                                 <FloatingLabel
-                                    label="Chọn thời gian shipper lấy hàng"
-                                >
-                                    <Form.Select aria-label="Floating label select example">
-                                        <option>0h - 1h</option>
-                                        <option>1h - 2h</option>
-                                        <option>2h - 3h</option>
-                                        <option>3h - 4h</option>
-                                        <option>4h - 5h</option>
-                                        <option>5h - 6h</option>
-                                        <option>6h - 7h</option>
-                                        <option>7h - 8h</option>
-                                        <option>8h - 9h</option>
-                                        <option>9h - 10h</option>
-                                        <option>10h - 11h</option>
-                                        <option>11h - 12h</option>
-                                        <option>12h - 13h</option>
-                                        <option>13h - 14h</option>
-                                        <option>14h - 15h</option>
-                                        <option>15h - 16h</option>
-                                        <option>16h - 17h</option>
-                                        <option>17h - 18h</option>
-                                        <option>18h - 19h</option>
-                                        <option>19h - 20h</option>
-                                        <option>20h - 21h</option>
-                                        <option>21h - 22h</option>
-                                        <option>22h - 23h</option>
-                                        <option>23h - 0h</option>
-                                    </Form.Select>
-                                </FloatingLabel>
-                            </Form.Group>
-
-                            <Form.Group className="mb-3">
-                                <FloatingLabel
-                                    controlId="floatingInput"
                                     label="Địa chỉ cụ thể"
                                 >
                                     <Form.Control type="text" placeholder="01 Võ Văn Ngân, Linh Chiểu, Thủ Đức"  />
@@ -163,13 +215,33 @@ const Sell = () => {
                                     label="Chọn TPBank LiveBank gần nhất"
                                 >
                                     <Form.Select>
-                                        <option>Địa chỉ LiveBank 1</option>
-                                        <option>Địa chỉ LiveBank 2</option>
-                                        <option>Địa chỉ LiveBank 3</option>
-                                        <option>Địa chỉ LiveBank 4</option>
+                                        <option>TPBank LiveBank Nguyễn Cơ Thạch Thủ Đức</option> 
+                                        <option>TPBank LiveBank Quận 2</option> 
+                                        <option>TPBank LiveBank An Phú Quận 2</option> 
+                                        <option>TPBank LiveBank Sun Avenue Quận 2</option> 
+                                        <option>TPBank LiveBank Đồng Văn Cống Quận 2 </option> 
+                                        <option>TPBank LiveBank Citihome Cát Lái Quận 2</option> 
+                                        <option>TPBank LiveBank 698 Nguyễn Duy Trinh Quận 2</option> 
+                                        <option>TPBank LiveBank Liên Phường Quận 9</option> 
+                                        <option>TPBank LiveBank Quận 9</option> 
+                                        <option>TPBank LiveBank FTown 3 Quận 9</option> 
+                                        <option>TPBank LiveBank FPT Software D1 Quận 9</option> 
+                                        <option>TPBank LiveBank Man Thiện Quận 9</option> 
+                                        <option>TPBank LiveBank Sài Gòn Gateway Quận 9</option> 
+                                        <option>TPBank LiveBank Tô Ngọc Vân Thủ Đức</option> 
+                                        <option>TPBank LiveBank Nguyễn Thị Nhung Thủ Đức</option> 
+                                        <option>TPBank LiveBank Bình Chiểu Thủ Đức</option> 
                                     </Form.Select>
                                 </FloatingLabel>
                             </Form.Group>
+
+                            <Form.Group className="mb-3">
+                                <FloatingLabel
+                                    label="Số điện thoại"
+                                >
+                                    <Form.Control type="text"/>
+                                </FloatingLabel>
+                            </Form.Group> 
 
                             <Button type="submit" className="container-fluid" onClick={handleFormSubmit}>Xác nhận</Button>
                             {/* <Form>
@@ -255,15 +327,7 @@ const Sell = () => {
                                     </FloatingLabel>
                                 </Form.Group>
 
-                                <Form.Group className="mb-3" id="formGridCheckbox">
-                                    <FloatingLabel
-                                        controlId="floatingInput"
-                                        label="Số điện thoại"
-                                        className="mb-3"
-                                    >
-                                        <Form.Control type="text"/>
-                                    </FloatingLabel>
-                                </Form.Group>   
+                                  
 
                                 <Button type="submit" className="container-fluid" onClick={handleFormSubmit}>Xác nhận</Button>
                             </Form> */}

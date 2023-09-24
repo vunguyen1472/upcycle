@@ -32,7 +32,7 @@ const Footer = () => {
                             <Nav.Link href="/about">Về chúng tôi</Nav.Link>
                             <Nav.Link>Điều khoản</Nav.Link>
                             <Nav.Link>Chính sách bảo mật</Nav.Link>
-                            <Nav.Link>Trách nhiệm cộng đồng</Nav.Link>
+                            <Nav.Link href="/responsibility">Trách nhiệm cộng đồng</Nav.Link>
                         </Nav>
                     </div>
                     <div className="px-3">

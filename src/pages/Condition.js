@@ -22,16 +22,7 @@ const Condition = () => {
             </div>
         </Container>
         
-        <div 
-            className="container-fluid"
-            style={{
-                position: 'fixed',
-                left: '0',
-                bottom: '0'
-            }}
-        >
-            <Footer />
-        </div>
+        <Footer />
     </>;
 }
  
