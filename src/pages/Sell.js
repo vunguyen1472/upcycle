@@ -14,9 +14,12 @@ import Row from 'react-bootstrap/Row';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import FormControl from "react-bootstrap/FormControl";
+
+import Map from "../components/Map";
 
 import logo from '../assets/images/logo.png'; 
-import { FormControl } from "react-bootstrap";
+// import MapComponent from "../components/MapComponent";
 
 const Sell = () => {
     const navigate = useNavigate();
@@ -60,13 +63,118 @@ const Sell = () => {
             <div>
                 <h3>Lựa chọn dịch vụ giao hàng</h3>
                 <small style={{maxWidth: '16rem'}}>Bạn chọn hình thức vận chuyển tiện lợi nhất để gửi túi đồ về UpCycle</small>
-                <Accordion defaultActiveKey="0" style={{maxWidth: '50rem'}} className="mt-3">
-                    <Accordion.Item eventKey="0">
-                        <Accordion.Header>Shipper thu gom tại nhà</Accordion.Header>
+                <Accordion defaultActiveKey="0" style={{width: '52rem'}} className="mt-3">
+                    
+                <Accordion.Item eventKey="0">
+                        <Accordion.Header>
+                            Bạn chọn gửi trực tiếp về kho hoặc gửi về kho qua đơn vị chuyển phát nhanh (người gửi trả phí ship)
+                        </Accordion.Header>
                         <Accordion.Body>
-                            <Form>
+                            <Map />
+                            <Form className="mt-3">
+                                <Form.Group className="mb-3">
+                                    <FloatingLabel
+                                        label="Chọn TPBank LiveBank gần nhất"
+                                    >
+                                        <Form.Select>
+                                            <option>Địa chỉ LiveBank 1</option>
+                                            <option>Địa chỉ LiveBank 2</option>
+                                            <option>Địa chỉ LiveBank 3</option>
+                                            <option>Địa chỉ LiveBank 4</option>
+                                        </Form.Select>
+                                    </FloatingLabel>
+                                </Form.Group>
+                                <Form.Group className="mb-3">
+                                    <FloatingLabel
+                                        label="Thời gian dự kiến bạn đến gửi hàng"
+                                    >
+                                        <Form.Control type="time" />
+                                    </FloatingLabel>
+                                </Form.Group>
+                                <Button type="submit" className="container-fluid" onClick={handleFormSubmit}>Xác nhận</Button>
+                            </Form>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1">
+                        <Accordion.Header>Shipper thu gom tại nhà</Accordion.Header>
+                        <Accordion.Body as={Form}>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Trọng lượng túi đồ</Form.Label>
+                                <ToggleButtonGroup type="radio" name="options" defaultValue={1} className="container-fluid justify-content-between px-0 gap-3">
+                                    <ToggleButton value={1} id="tbg-radio-1">
+                                        1kg-5kg
+                                    </ToggleButton>
+                                    <ToggleButton value={2} id="tbg-radio-2">
+                                        6kg-10kg
+                                    </ToggleButton>
+                                    <ToggleButton value={3} id="tbg-radio-3">
+                                        11kg-15kg
+                                    </ToggleButton>
+                                    <ToggleButton value={3} id="tbg-radio-4">
+                                        16kg-20kg
+                                    </ToggleButton>
+                                </ToggleButtonGroup>
+                            </Form.Group>
+
+                            <Form.Group className="mb-3">
+                                <FloatingLabel
+                                    label="Chọn thời gian shipper lấy hàng"
+                                >
+                                    <Form.Select aria-label="Floating label select example">
+                                        <option>0h - 1h</option>
+                                        <option>1h - 2h</option>
+                                        <option>2h - 3h</option>
+                                        <option>3h - 4h</option>
+                                        <option>4h - 5h</option>
+                                        <option>5h - 6h</option>
+                                        <option>6h - 7h</option>
+                                        <option>7h - 8h</option>
+                                        <option>8h - 9h</option>
+                                        <option>9h - 10h</option>
+                                        <option>10h - 11h</option>
+                                        <option>11h - 12h</option>
+                                        <option>12h - 13h</option>
+                                        <option>13h - 14h</option>
+                                        <option>14h - 15h</option>
+                                        <option>15h - 16h</option>
+                                        <option>16h - 17h</option>
+                                        <option>17h - 18h</option>
+                                        <option>18h - 19h</option>
+                                        <option>19h - 20h</option>
+                                        <option>20h - 21h</option>
+                                        <option>21h - 22h</option>
+                                        <option>22h - 23h</option>
+                                        <option>23h - 0h</option>
+                                    </Form.Select>
+                                </FloatingLabel>
+                            </Form.Group>
+
+                            <Form.Group className="mb-3">
+                                <FloatingLabel
+                                    controlId="floatingInput"
+                                    label="Địa chỉ cụ thể"
+                                >
+                                    <Form.Control type="text" placeholder="01 Võ Văn Ngân, Linh Chiểu, Thủ Đức"  />
+                                </FloatingLabel>
+                            </Form.Group>
+
+                            <Form.Group className="mb-3">
+                                <FloatingLabel
+                                    label="Chọn TPBank LiveBank gần nhất"
+                                >
+                                    <Form.Select>
+                                        <option>Địa chỉ LiveBank 1</option>
+                                        <option>Địa chỉ LiveBank 2</option>
+                                        <option>Địa chỉ LiveBank 3</option>
+                                        <option>Địa chỉ LiveBank 4</option>
+                                    </Form.Select>
+                                </FloatingLabel>
+                            </Form.Group>
+
+                            <Button type="submit" className="container-fluid" onClick={handleFormSubmit}>Xác nhận</Button>
+                            {/* <Form>
                                 <Row className="mb-3">
-                                    <Form.Group as={Col}>
+                                    <Form.Group as={Col} xs={8}>
                                         <p>Trọng lượng túi đồ</p>
                                         <ToggleButtonGroup type="radio" name="options" defaultValue={1} className="container-fluid justify-content-between px-0 gap-2">
                                             <ToggleButton value={1} id="tbg-radio-1" style={{fontSize: '12px'}}>
@@ -85,41 +193,34 @@ const Sell = () => {
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId="formGridEmail">
-                                        <p>Chọn thời gian shipper lấy hàng</p>
-                                        <FormControl type="date"/>
-                                    </Form.Group>
-                                </Row>
-
-                                <Row className="mb-3">
-                                    <Form.Group as={Col} controlId="formGridEmail">
                                         <FloatingLabel
-                                            controlId="floatingSelectGrid"
-                                            label="Tỉnh/Thành phố"
-                                        >
-                                        <Form.Select aria-label="Floating label select example">
-                                            <option hidden>Chọn</option>
-                                            <option>Hà Nội</option>
-                                            <option>Hồ Chí Minh</option>
-                                            <option>Đà Nẵng</option>
-                                        </Form.Select>
-                                        </FloatingLabel>
-                                    </Form.Group>
-
-                                    <Form.Group as={Col} controlId="formGridEmail">
-                                        <FloatingLabel
-                                            label="Quận/Huyện"
+                                            label="Chọn thời gian shipper lấy hàng"
                                         >
                                             <Form.Select aria-label="Floating label select example">
-                                                <option hidden>Chọn</option>
-                                                <option>Quận 1</option>
-                                                <option>Quận 2</option>
-                                                <option>Quận 3</option>
-                                                <option>Quận 4</option>
-                                                <option>Quận 5</option>
-                                                <option>Quận 6</option>
-                                                <option>Quận 7</option>
-                                                <option>Quận 8</option>
-                                                <option>Quận 9</option>
+                                                <option>0h - 1h</option>
+                                                <option>1h - 2h</option>
+                                                <option>2h - 3h</option>
+                                                <option>3h - 4h</option>
+                                                <option>4h - 5h</option>
+                                                <option>5h - 6h</option>
+                                                <option>6h - 7h</option>
+                                                <option>7h - 8h</option>
+                                                <option>8h - 9h</option>
+                                                <option>9h - 10h</option>
+                                                <option>10h - 11h</option>
+                                                <option>11h - 12h</option>
+                                                <option>12h - 13h</option>
+                                                <option>13h - 14h</option>
+                                                <option>14h - 15h</option>
+                                                <option>15h - 16h</option>
+                                                <option>16h - 17h</option>
+                                                <option>17h - 18h</option>
+                                                <option>18h - 19h</option>
+                                                <option>19h - 20h</option>
+                                                <option>20h - 21h</option>
+                                                <option>21h - 22h</option>
+                                                <option>22h - 23h</option>
+                                                <option>23h - 0h</option>
                                             </Form.Select>
                                         </FloatingLabel>
                                     </Form.Group>
@@ -165,35 +266,7 @@ const Sell = () => {
                                 </Form.Group>   
 
                                 <Button type="submit" className="container-fluid" onClick={handleFormSubmit}>Xác nhận</Button>
-                            </Form>
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1">
-                        <Accordion.Header>
-                            Bạn chọn gửi trực tiếp về kho hoặc gửi về kho qua đơn vị chuyển phát nhanh (người gửi trả phí ship)
-                        </Accordion.Header>
-                        <Accordion.Body>
-                        <Form>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Địa chỉ</Form.Label><br/>
-                                <Form.Text id="passwordHelpBlock" muted>
-                                    256-258 Lý Thường Kiệt, P14, Q10, TP.HCM
-                                </Form.Text>
-                            </Form.Group>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Thời gian</Form.Label><br/>
-                                <Form.Text id="passwordHelpBlock" muted>
-                                    8h hàng ngày trên HTV3
-                                </Form.Text>
-                            </Form.Group>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Phí vận chuyển</Form.Label><br/>
-                                <Form.Text id="passwordHelpBlock" muted>
-                                    Free luôn em ơi
-                                </Form.Text>
-                            </Form.Group>
-                            <Button type="submit" className="container-fluid" onClick={handleFormSubmit}>Xác nhận</Button>
-                        </Form>
+                            </Form> */}
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>

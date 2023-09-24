@@ -22,19 +22,24 @@ const Footer = () => {
                     <div className="px-3">
                         <h6 className="p-2">Hỗ trợ khách hàng</h6>
                         <Nav className="flex-column">
-                            <Nav.Link>Hướng dẫn mua hàng Online</Nav.Link>
-                            <Nav.Link>Hình thức thanh toán</Nav.Link>
-                            <Nav.Link>Điều kiện cho tặng</Nav.Link>
-                            <Nav.Link>Quy trình xử lí quần áo</Nav.Link>
+                            <Nav.Link href="condition">Điều kiện cho tặng</Nav.Link>
+                            <Nav.Link href="clothes-processing-procedure">Quy trình xử lí quần áo</Nav.Link>
                         </Nav>
                     </div>
                     <div className="px-3">
                         <h6 className="p-2">Công ty</h6>
                         <Nav className="flex-column">
-                            <Nav.Link>Về chúng tôi</Nav.Link>
+                            <Nav.Link href="/about">Về chúng tôi</Nav.Link>
                             <Nav.Link>Điều khoản</Nav.Link>
                             <Nav.Link>Chính sách bảo mật</Nav.Link>
                             <Nav.Link>Trách nhiệm cộng đồng</Nav.Link>
+                        </Nav>
+                    </div>
+                    <div className="px-3">
+                        <h6 className="p-2">Câu chuyện đẹp cùng UpCycle</h6>
+                        <Nav className="flex-column">
+                            <Nav.Link >Sứ mệnh</Nav.Link>
+                            <Nav.Link href="/styles">Phong cách của bạn</Nav.Link>
                         </Nav>
                     </div>
                     <div className="px-3">
@@ -43,6 +48,7 @@ const Footer = () => {
                             
                         </Nav>
                     </div>
+                    
                 </Container>
             </Navbar>  
         </Container>

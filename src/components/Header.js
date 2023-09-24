@@ -28,10 +28,10 @@ const Header = () => {
                     <Nav.Link href='/sell' className="me-5">Cho tặng</Nav.Link>
                     
                     {localStorage.getItem("currentUser") && <NavDropdown title={localStorage.getItem("currentUser")}>
-                        <NavDropdown.Item as={Nav.Link} href="/user" className="px-3">
+                        {/* <NavDropdown.Item as={Nav.Link} href="/user" className="px-3">
                             Thông tin tài khoản
                         </NavDropdown.Item>
-                        <NavDropdown.Divider />
+                        <NavDropdown.Divider /> */}
                         <NavDropdown.Item onClick={handleLogout}>
                             Đăng xuất
                         </NavDropdown.Item>
