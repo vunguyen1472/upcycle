@@ -17,7 +17,8 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
 import LiveBanksMap from "../components/LiveBanksMap";
 
-import logo from '../assets/images/logo.png'; 
+import logo from '../assets/images/logo.png';
+import sellWarning from '../assets/images/sell-warning.jpg'; 
 
 const Sell = () => {
     const navigate = useNavigate();
@@ -34,27 +35,33 @@ const Sell = () => {
 
     return <div>
         <Header />
-        <Container className="d-flex justify-content-center p-5">
-            <Card style={{ width: '25rem', height: 'fit-content' }} className="p-3 mx-5">
+        <Container className="d-flex justify-content-evenly py-5">
+            <Card style={{ width: '25rem', height: 'fit-content' }} className="p-2">
                 <Card.Body>
                     <Card.Title className="fs-2">Chụp hình túi đồ bạn muốn cho tặng</Card.Title>
-                    <Card.Text>
+                    <Card.Text className="mt-3">
                         Chỉ cần up hình túi đồ, bạn không cần chụp hình từng sản phẩm
+                    </Card.Text>
+                    <Card.Text>
+                        <small>
+                            Lưu ý: UPCYCLE nhận cho tặng tất cả các sản phẩm thời trang còn sử dụng được bao gồm: quần, áo, giày dép, túi xách,... UPCYCLE không nhận cho tặng quần áo lót, các mặt hàng quá bẩn, quá cũ hoặc đồ nhạy cảm.
+                        </small>
                     </Card.Text>
 
                     <Card className="text-center bs-dashed cs-pointer">
-                        <Card.Body className="p-2 text-center">
+                        <Card.Body className="text-center">
                             <img
                                 alt=""
                                 src={UploadedFile}
                                 height="56"
                                 className="d-inline-block align-top mb-2"
                             />
-                            <input type="file" onChange={handleUploadFile}/>
+                            <input type="file" onChange={handleUploadFile} className="mt-1"/>
                             
                         </Card.Body>
                     </Card>
                     
+                    <Card.Img variant="bottom" src={sellWarning} className="mt-4"/>
                 </Card.Body>
             </Card>
             

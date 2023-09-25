@@ -141,6 +141,7 @@ const Home = () => {
                                     onClick={() => {triggerCard(card.id)}}
                                     aria-controls={card.id}
                                     aria-expanded={card.isOpen}
+                                    className="fw-bold bg-success bg-gradient"
                                 >
                                     {card.question}
                                 </Card.Header>
@@ -167,6 +168,7 @@ const Home = () => {
                                     onClick={() => {triggerCard(card.id)}}
                                     aria-controls={card.id}
                                     aria-expanded={card.isOpen}
+                                    className="fw-bold bg-success bg-gradient"
                                 >
                                     {card.question}
                                 </Card.Header>

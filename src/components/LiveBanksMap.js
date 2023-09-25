@@ -1,8 +1,9 @@
+import { useEffect, useRef } from 'react';
+
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-import { useEffect, useRef } from 'react';
 
 function LiveBanksMap() {
     const mapRef = useRef(null);
